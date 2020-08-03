@@ -1,0 +1,18 @@
+name: Update gist
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update gist
+        uses: maxam2017/productive-box@master
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: https://gist.github.com/subinmun1997/610246fa9a298f2dc929d63a08063d62d82c77b0
+          TIMEZONE: Asia/Korea
